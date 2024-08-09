@@ -19,7 +19,7 @@ const loginData = asyncHandler(async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Token expires in 1 hour
+      { expiresIn: process.env.JWT_EXP }
     );
 
     // Send token to client
